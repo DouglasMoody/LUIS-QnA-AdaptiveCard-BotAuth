@@ -1,0 +1,155 @@
+﻿{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "BotName",
+          "weight": "bolder",
+          "size": "large"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://avatars0.githubusercontent.com/u/40870695?s=40&v=4",
+                  "size": "small",
+                  "style": "person"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "Hello there!",
+                  "weight": "bolder",
+                  "size": "medium",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "none",
+                  "text": "",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Select a choice or type \"hello\" at any time to return to this prompt.",
+          "wrap": true
+        },
+        {
+          "type": "FactSet",
+          "facts": [
+            {
+              "title": "",
+              "value": ""
+            },
+            {
+              "title": "",
+              "value": ""
+            },
+            {
+              "title": "",
+              "value": ""
+            },
+            {
+              "title": "",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Ask Bot",
+      "data": {
+        "action": "support"
+      },
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "Input.Text",
+            "id": "supportAction",
+            "title": "View Task Options"
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "OK"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "View Task Options",
+      "data": {
+        "action": "trivia"
+      },
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "Input.Text",
+            "id": "tellTrivia",
+            "title": "Tell me trivia"
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "Play Trivia"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Guide Me",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "Input.Text",
+            "id": "doNothing",
+            "title": "None of these"
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "OK"
+          }
+        ]
+
+      }
+    }
+  ]
+}
