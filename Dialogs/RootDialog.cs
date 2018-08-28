@@ -36,7 +36,8 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
                                 context.Call(new BasicLuisDialog(), AfterSupport);
                                 break;
                             case "support":
-                                context.Call(new BasicLuisDialog(), AfterSupport);
+                                activity.Text = "support";
+                                await context.Forward(new BasicLuisDialog(), AfterSupport, activity, CancellationToken.None);
                                 break;
                             case "guide":
                                 context.Call(new BasicLuisDialog(), AfterSupport);
@@ -93,12 +94,12 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
             if (((IMessageActivity)context.Activity).Text.ToLowerInvariant().Contains("support"))
             {
                 // Since we are not needing to pass any message to start support, we can use call instead of forward
-                context.Call(new BasicLuisDialog(), AfterSupport);
+                //context.Call(new BasicLuisDialog(), AfterSupport);
             }
             else if (((IMessageActivity)context.Activity).Text.ToLowerInvariant().Contains("task"))
             {
                 // Since we are not needing to pass any message to start trivia, we can use call instead of forward
-                context.Call(new BasicLuisDialog(), AfterSupport);
+                //context.Call(new BasicLuisDialog(), AfterSupport);
             }
             else if (!string.IsNullOrEmpty(answer))
             {

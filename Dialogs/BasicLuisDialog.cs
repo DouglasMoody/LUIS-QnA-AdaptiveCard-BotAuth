@@ -53,87 +53,14 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
         [LuisIntent("None")]
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
-            //await CardTest(context);
-            //  await this.ShowLuisResult(context, result);
         }
 
-        // Replace "Greeting" with your intents
-        [LuisIntent("chat.greet")]
+        [LuisIntent("support")]
         public async Task ChatGreetIntent(IDialogContext context, LuisResult result)
         {
-            var qnaResult = generalKB.GetAnswer(result.Query);
-            await context.PostAsync(qnaResult);
-        }
-        /* ShowsAdaptivecard       {
-            await CardTest(context);
-            await this.ShowLuisResult(context, result);
-        } */
+            await context.PostAsync("support reached");
+            context.Done("support reached");
 
-        [LuisIntent("hr.info")]
-        public async Task HRInfoIntent(IDialogContext context, LuisResult result)
-        {
-            var qnaResult = hrKB.GetAnswer(result.Query);
-            await context.PostAsync(qnaResult);
-            //await this.ShowLuisResult(context, result);
-        }
-
-        [LuisIntent("chat.bot")]
-        public async Task ChatBotIntent(IDialogContext context, LuisResult result)
-        {
-            var qnaResult = generalKB.GetAnswer(result.Query);
-            await context.PostAsync(qnaResult);
-        }
-
-        [LuisIntent("hr.do")]
-        public async Task HRDoIntent(IDialogContext context, LuisResult result)
-        {
-            var qnaResult = hrKB.GetAnswer(result.Query);
-            await context.PostAsync(qnaResult);
-
-        }
-
-        [LuisIntent("it.support")]
-        public async Task ITSupportIntent(IDialogContext context, LuisResult result)
-        {
-            var qnaResult = itKB.GetAnswer(result.Query);
-            var patternToMatch = "[0-9]{3}card.json";
-            var regex = new Regex(patternToMatch, RegexOptions.IgnoreCase);
-
-            if (regex.IsMatch(qnaResult))
-            {
-                await context.Forward(new AdaptiveCardDialog(), this.ResumeAfterAdaptiveCardDialog, qnaResult, CancellationToken.None);
-            }
-            else
-                await context.PostAsync(qnaResult);
-
-        }
-        private async Task ResumeAfterAdaptiveCardDialog(IDialogContext context, IAwaitable<object> result)
-        {
-            var ticketNumber = await result;
-
-            await context.PostAsync($"Thanks for contacting our support team. Your ticket number is {ticketNumber}.");
-            context.Wait(this.MessageReceivedAsync);
-        }
-
-
-        public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
-        {
-
-        }
-
-
-        [LuisIntent("it.info")]
-        public async Task ITInfoIntent(IDialogContext context, LuisResult result)
-        {
-            var qnaResult = itKB.GetAnswer(result.Query);
-            await context.PostAsync(qnaResult);
-        }
-
-        [LuisIntent("chat.general")]
-        public async Task ChatGeneralIntent(IDialogContext context, LuisResult result)
-        {
-            var qnaResult = generalKB.GetAnswer(result.Query);
-            await context.PostAsync(qnaResult);
         }
 
         #endregion
