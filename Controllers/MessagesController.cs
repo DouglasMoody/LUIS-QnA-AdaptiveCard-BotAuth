@@ -8,12 +8,13 @@ using System.Web;
 using System.Web.Http;
 using AdaptiveCards;
 using Autofac;
+using ChatterBot.Dialogs;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
 
-namespace Microsoft.Bot.Sample.LuisBot.Dialogs
+namespace ChatterBot.Controllers
 {
     [BotAuthentication]
     public class MessagesController : ApiController

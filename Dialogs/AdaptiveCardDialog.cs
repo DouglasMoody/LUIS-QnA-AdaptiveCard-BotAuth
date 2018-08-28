@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
-namespace Microsoft.Bot.Sample.LuisBot.Dialogs
+namespace ChatterBot.Dialogs
 {
     [Serializable]
     public class AdaptiveCardDialog : IDialog<object>

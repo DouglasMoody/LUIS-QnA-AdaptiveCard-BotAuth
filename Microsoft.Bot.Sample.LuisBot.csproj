@@ -15,8 +15,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Bot.Sample.LuisBot</RootNamespace>
-    <AssemblyName>SimpleEchoBot</AssemblyName>
+    <RootNamespace>ChatterBot</RootNamespace>
+    <AssemblyName>ChatterBot</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -191,9 +191,10 @@
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\CardsDialog.cs" />
     <Compile Include="Dialogs\AdaptiveCardDialog.cs" />
+    <Compile Include="Utility\QnAMakerService.cs" />
     <Compile Include="Dialogs\TaskDialog.cs" />
     <Compile Include="Dialogs\AuthDialog.cs" />
-    <Compile Include="Dialogs\BasicLuisDialog.cs" />
+    <Compile Include="Dialogs\LuisDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Global.asax.cs">

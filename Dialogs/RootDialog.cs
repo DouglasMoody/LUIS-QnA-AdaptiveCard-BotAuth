@@ -6,7 +6,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json.Linq;
 
-namespace Microsoft.Bot.Sample.LuisBot.Dialogs
+namespace ChatterBot.Dialogs
 {
     [Serializable]
     public class RootDialog : IDialog<object>
@@ -33,14 +33,14 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
                         switch (valueToken.SelectToken("action").ToString())
                         {
                             case "task":
-                                context.Call(new BasicLuisDialog(), AfterSupport);
+                                context.Call(new LuisDialog(), AfterSupport);
                                 break;
                             case "support":
                                 activity.Text = "support";
-                                await context.Forward(new BasicLuisDialog(), AfterSupport, activity, CancellationToken.None);
+                                await context.Forward(new LuisDialog(), AfterSupport, activity, CancellationToken.None);
                                 break;
                             case "guide":
-                                context.Call(new BasicLuisDialog(), AfterSupport);
+                                context.Call(new LuisDialog(), AfterSupport);
                                 break;
                             default:
                                 await context.PostAsync($"I don't know how to handle the action \"{actionValue}\".");
@@ -56,7 +56,7 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
                 }
                 else
                 {
-                    await context.Forward(new BasicLuisDialog(), AfterSupport, activity, CancellationToken.None);
+                    await context.Forward(new LuisDialog(), AfterSupport, activity, CancellationToken.None);
                 }
             }
             catch (Exception e)
