@@ -192,7 +192,6 @@
     <Compile Include="Dialogs\CardsDialog.cs" />
     <Compile Include="Dialogs\AdaptiveCardDialog.cs" />
     <Compile Include="Utility\QnAMakerService.cs" />
-    <Compile Include="Dialogs\TaskDialog.cs" />
     <Compile Include="Dialogs\AuthDialog.cs" />
     <Compile Include="Dialogs\LuisDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
