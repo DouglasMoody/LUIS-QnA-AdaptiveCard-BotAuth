@@ -51,13 +51,15 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
                     var client = scope.Resolve<IConnectorClient>();
                     if (update.MembersAdded.Any())
                     {
-                        var reply = message.CreateReply();
+                       
                         foreach (var newMember in update.MembersAdded)
                         {
                             // the bot is always added as a user of the conversation, since we don't
                             // want to display the adaptive card twice ignore the conversation update triggered by the bot
                             if (newMember.Name.ToLower() != "bot")
                             {
+                                var reply = message.CreateReply();
+
                                 try
                                 {
                                     // read the json in from our file

@@ -59,6 +59,36 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
         public async Task ChatGreetIntent(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("support reached");
+            var testQnaResult = "DisplayCard:PasswordResetCard.json";
+            if (testQnaResult.StartsWith("DisplayCard"))
+            {
+                var reply = context.MakeMessage();
+
+                try
+                {
+                    // read the json in from our file
+                    string json = File.ReadAllText(HttpContext.Current.Request.MapPath("~\\AdaptiveCards\\TaskCard.json"));
+                    // use Newtonsofts JsonConvert to deserialized the json into a C# AdaptiveCard object
+                    AdaptiveCard card = JsonConvert.DeserializeObject<AdaptiveCard>(json);
+                    // put the adaptive card as an attachment to the reply message
+                    reply.Attachments.Add(new Attachment
+                    {
+                        ContentType = AdaptiveCard.ContentType,
+                        Content = card
+                    });
+                }
+                catch (Exception e)
+                {
+                    // if an error occured add the error text as the message
+                    reply.Text = e.Message;
+                }
+
+                await context.PostAsync(reply);
+            }
+            else
+            {
+
+            }
             context.Done("support reached");
 
         }

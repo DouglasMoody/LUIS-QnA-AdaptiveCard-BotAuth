@@ -1,9 +1,9 @@
-﻿    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using System.Web;
-    using Microsoft.Bot.Builder.Dialogs;
-    using Microsoft.Bot.Connector;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Connector;
 
 namespace CardsBotMicrosoft.Bot.Sample.LuisBot.Dialogs
 {

@@ -4,79 +4,72 @@
   "version": "1.0",
   "body": [
     {
-      "type": "Container",
-      "items": [
+      "type": "ColumnSet",
+      "columns": [
         {
-          "type": "TextBlock",
-          "text": "BotName",
-          "weight": "bolder",
-          "size": "large"
-        },
-        {
-          "type": "ColumnSet",
-          "columns": [
+          "type": "Column",
+          "width": 2,
+          "items": [
             {
-              "type": "Column",
-              "width": "auto",
-              "items": [
-                {
-                  "type": "Image",
-                  "url": "https://avatars0.githubusercontent.com/u/40870695?s=40&v=4",
-                  "size": "small",
-                  "style": "person"
-                }
-              ]
+              "type": "TextBlock",
+              "text": "Tell us about yourself",
+              "weight": "bolder",
+              "size": "medium"
             },
             {
-              "type": "Column",
-              "width": "stretch",
-              "items": [
-                {
-                  "type": "TextBlock",
-                  "text": "Hello there!",
-                  "weight": "bolder",
-                  "size": "medium",
-                  "wrap": true
-                },
-                {
-                  "type": "TextBlock",
-                  "spacing": "none",
-                  "text": "",
-                  "isSubtle": true,
-                  "wrap": true
-                }
-              ]
+              "type": "TextBlock",
+              "text": "We just need a few more details to get you booked for the trip of a lifetime!",
+              "isSubtle": true,
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "text": "Don't worry, we'll never share or sell your information.",
+              "isSubtle": true,
+              "wrap": true,
+              "size": "small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Your name",
+              "wrap": true
+            },
+            {
+              "type": "Input.Text",
+              "id": "myName",
+              "placeholder": "Last, First"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Your email",
+              "wrap": true
+            },
+            {
+              "type": "Input.Text",
+              "id": "myEmail",
+              "placeholder": "youremail@example.com",
+              "style": "email"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Phone Number"
+            },
+            {
+              "type": "Input.Text",
+              "id": "myTel",
+              "placeholder": "xxx.xxx.xxxx",
+              "style": "tel"
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "Container",
-      "items": [
-        {
-          "type": "TextBlock",
-          "text": "Select a choice or type \"hello\" at any time to return to this prompt.",
-          "wrap": true
         },
         {
-          "type": "FactSet",
-          "facts": [
+          "type": "Column",
+          "width": 1,
+          "items": [
             {
-              "title": "",
-              "value": ""
-            },
-            {
-              "title": "",
-              "value": ""
-            },
-            {
-              "title": "",
-              "value": ""
-            },
-            {
-              "title": "",
-              "value": ""
+              "type": "Image",
+              "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Diver_Silhouette%2C_Great_Barrier_Reef.jpg",
+              "size": "auto"
             }
           ]
         }
@@ -86,70 +79,7 @@
   "actions": [
     {
       "type": "Action.Submit",
-      "title": "Ask Bot",
-      "data": {
-        "action": "support"
-      },
-      "card": {
-        "type": "AdaptiveCard",
-        "body": [
-          {
-            "type": "Input.Text",
-            "id": "supportAction",
-            "title": "View Task Options"
-          }
-        ],
-        "actions": [
-          {
-            "type": "Action.Submit",
-            "title": "OK"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Action.Submit",
-      "title": "View Task Options",
-      "data": {
-        "action": "trivia"
-      },
-      "card": {
-        "type": "AdaptiveCard",
-        "body": [
-          {
-            "type": "Input.Text",
-            "id": "tellTrivia",
-            "title": "Tell me trivia"
-          }
-        ],
-        "actions": [
-          {
-            "type": "Action.Submit",
-            "title": "Play Trivia"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Action.Submit",
-      "title": "Guide Me",
-      "card": {
-        "type": "AdaptiveCard",
-        "body": [
-          {
-            "type": "Input.Text",
-            "id": "doNothing",
-            "title": "None of these"
-          }
-        ],
-        "actions": [
-          {
-            "type": "Action.Submit",
-            "title": "OK"
-          }
-        ]
-
-      }
+      "title": "Submit"
     }
   ]
 }
