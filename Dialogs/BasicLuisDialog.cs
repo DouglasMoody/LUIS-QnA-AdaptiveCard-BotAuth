@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Web;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
@@ -46,16 +47,13 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
             "your qna Endpointkey" // visible after you publish your qna KB
         );
 
-
-
-
         #region Intents
 
 
         [LuisIntent("None")]
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
-            await CardTest(context);
+            //await CardTest(context);
             //  await this.ShowLuisResult(context, result);
         }
 
@@ -107,9 +105,9 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
             }
             else
                 await context.PostAsync(qnaResult);
-                       
+
         }
-        private async Task ResumeAfterAdaptiveCardDialog(IDialogContext context, IAwaitable<string> result)
+        private async Task ResumeAfterAdaptiveCardDialog(IDialogContext context, IAwaitable<object> result)
         {
             var ticketNumber = await result;
 
@@ -119,6 +117,9 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
 
 
         public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
+        {
+
+        }
 
 
         [LuisIntent("it.info")]
@@ -238,5 +239,5 @@ namespace Microsoft.Bot.Sample.LuisBot.Dialogs
         public IList<Answer> answers { get; set; }
     }
     /* END - QnA Maker Response Class */
-   
+
 }
